@@ -1,0 +1,872 @@
+```css
+/* Variables */
+:root {
+    --primary-color: #6c63ff; /* A vibrant purple/blue */
+    --accent-color: #ff6584; /* A pop of pink/red */
+    --text-color: #333;
+    --light-text-color: #f4f4f4;
+    --bg-light: #f9f9f9;
+    --bg-dark: #2c3e50;
+    --border-color: #eee;
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+    --max-width: 1200px;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+h1 { font-size: 3rem; line-height: 1.2; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.75rem; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+.section-padding {
+    padding: 6rem 0;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.bg-accent {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+.bg-accent h2, .bg-accent p {
+    color: var(--light-text-color);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+    border-color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.btn-secondary-outline {
+    background: none;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-secondary-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    transform: translateY(-2px);
+}
+
+.btn-light-outline {
+    background: none;
+    color: var(--light-text-color);
+    border-color: var(--light-text-color);
+}
+
+.btn-light-outline:hover {
+    background-color: var(--light-text-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+.btn-small {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    border-radius: 30px;
+}
+
+/* Header */
+.main-header {
+    background-color: #fff;
+    padding: 1.2rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-secondary);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -1px;
+}
+
+.main-nav .nav-list {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.main-nav .nav-list a {
+    color: var(--text-color);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.main-nav .nav-list a:not(.btn)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.main-nav .nav-list a:not(.btn):hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, rgba(108, 99, 255, 0.9), rgba(255, 101, 132, 0.9)), url('https://via.placeholder.com/1500x800/6c63ff/ff6584?text=Hero+Background') no-repeat center center/cover;
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 10rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: var(--light-text-color);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-section p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+.hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Features Section */
+.features-section h2, .how-it-works-section h2, .examples-section h2, .pricing-section h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.features-section h2::after, .how-it-works-section h2::after, .examples-section h2::after, .pricing-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-item {
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.feature-item i {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.feature-item h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.feature-item p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* How It Works Section */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.step-item {
+    text-align: center;
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.step-item:hover {
+    transform: translateY(-5px);
+}
+
+.step-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.step-item h3 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+}
+
+.step-item p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Examples Section */
+.example-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.example-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.example-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.example-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.example-card h3 {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 0.8rem;
+    color: var(--primary-color);
+}
+
+.example-card .btn {
+    margin-bottom: 1.5rem;
+}
+
+/* Pricing Section */
+.pricing-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 3rem;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+.pricing-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.pricing-card.featured {
+    transform: scale(1.05);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    z-index: 1;
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.08) translateY(-10px);
+}
+
+.pricing-card.featured::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background-color: var(--primary-color);
+    border-radius: 10px 10px 0 0;
+}
+
+.pricing-card h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.pricing-card .most-popular {
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+    font-weight: 600;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+}
+
+.pricing-card .price {
+    font-family: var(--font-secondary);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.pricing-card .price span {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #777;
+}
+
+.pricing-card ul {
+    margin-bottom: 2rem;
+    text-align: left;
+    display: inline-block; /* to center ul itself */
+}
+
+.pricing-card ul li {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.pricing-card ul li i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+.pricing-card ul li .fa-times-circle {
+    color: #ccc;
+}
+
+
+/* Call to Action Section */
+.cta-section {
+    padding: 8rem 0;
+    background: linear-gradient(135deg, rgba(108, 99, 255, 0.95), rgba(255, 101, 132, 0.95));
+    color: var(--light-text-color);
+}
+
+.cta-section h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-section p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--bg-dark);
+    color: rgba(255,255,255,0.8);
+    padding: 4rem 0 1.5rem;
+    font-size: 0.9rem;
+}
+
+.main-footer h3 {
+    color: var(--light-text-color);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-primary);
+    font-weight: 600;
+}
+
+.main-footer p {
+    margin-bottom: 1rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.footer-col:first-child .logo {
+    color: var(--light-text-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-col ul li a {
+    color: rgba(255,255,255,0.7);
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+}
+
+.social-links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.3rem;
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 1.2rem;
+    flex-wrap: wrap; /* Allows input and button to wrap */
+}
+
+.newsletter-form input {
+    flex-grow: 1;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50px 0 0 50px;
+    background-color: rgba(255,255,255,0.08);
+    color: var(--light-text-color);
+    font-family: var(--font-primary);
+    outline: none;
+    transition: border-color 0.3s ease;
+    min-width: 150px; /* Ensure input is not too small on small screens */
+}
+
+.newsletter-form input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.newsletter-form input:focus {
+    border-color: var(--primary-color);
+}
+
+.newsletter-form button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 0 50px 50px 0;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: var(--accent-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    color: rgba(255,255,255,0.6);
+}
+
+/* Scroll To Top Button */
+#scrollToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    bottom: 30px; /* Place button at the bottom */
+    right: 30px; /* Place button at the right */
+    z-index: 99; /* Make sure it does not overlap other elements */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: var(--accent-color); /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 50%; /* Rounded corners */
+    font-size: 1.2rem; /* Increase font size */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        padding: 1rem 0;
+    }
+
+    .main-nav.active {
+        display: flex;
+    }
+
+    .main-nav .nav-list {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+        padding: 0 1.5rem;
+    }
+
+    .main-nav .nav-list li {
+        width: 100%;
+    }
+
+    .main-nav .nav-list a {
+        display: block;
+        padding: 0.8rem 0;
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .main-nav .nav-list li:last-child a {
+        border-bottom: none;
+    }
+
+    .nav-btn {
+        margin-top: 1rem;
+        width: fit-content;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-section {
+        padding: 8rem 0;
+        min-height: 60vh;
+    }
+
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+
+    .hero-section p {
+        font-size: 1.1rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .features-section h2, .how-it-works-section h2, .examples-section h2, .pricing-section h2 {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .cta-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .cta-section p {
+        font-size: 1.1rem;
+    }
+
+    .pricing-card.featured {
+        transform: none; /* Remove scaling on smaller screens */
+    }
+    .pricing-card.featured:hover {
+        transform: translateY(-10px); /* Keep hover effect */
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .newsletter-form input, .newsletter-form button {
+        border-radius: 50px;
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+
+    .section-padding {
+        padding: 4rem 0;
+    }
+
+    .hero-section {
+        padding: 6rem 0;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .feature-grid, .steps-grid, .example-grid, .pricing-grid, .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-item, .step-item, .example-card, .pricing-card {
+        padding: 2rem;
+    }
+
+    .pricing-card .most-popular {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0.8rem;
+    }
+
+    .pricing-card.featured::before {
+        display: none;
+    }
+    .pricing-card.featured {
+        border-top: 10px solid var(--primary-color);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.3rem; }
+
+    .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+    .hero-section p {
+        font-size: 0.9rem;
+    }
+
+    .feature-item i {
+        font-size: 3rem;
+    }
+
+    .step-number {
+        font-size: 2rem;
+        width: 50px;
+        height: 50px;
+    }
+
+    .pricing-card .price {
+        font-size: 3rem;
+    }
+}
+```
